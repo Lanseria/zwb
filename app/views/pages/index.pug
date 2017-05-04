@@ -1,0 +1,135 @@
+extends ../layout
+
+block content
+  .image-container.set-full-height(style="background-image: url('/assets/img/wizard.jpg')")
+    // Creative Tim Branding
+    a(href='#')
+      .logo-container
+        .logo
+          img(src='/assets/img/new_logo.png')
+        .brand
+          | 欢迎您 同学
+    // Made With Get Shit Done Kit
+    a.made-with-mk(href='https://www.limonplayer.cn')
+      .brand LS
+      .made-with
+        | Made with 
+        strong Lanseria
+    // Big container
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          // Wizard container
+          .wizard-container
+            #wizardProfile.card.wizard-card(data-color='orange')
+              form(method='POST', action="/uploadXls", enctype="multipart/form-data")
+                // You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"
+                .wizard-header
+                  h3
+                    b 填写
+                    | 你的报名信息
+                    br
+                    small 这里的报名选项都可以在展望杯
+                      a(href='/demofiles/“展望杯”大学生计算机设计大赛报名表.xls') 报名表
+                      | 中可以找到,请提前准备好
+                .wizard-navigation
+                  ul
+                    li
+                      a(href='#about', data-toggle='tab') 基本
+                    li
+                      a(href='#account', data-toggle='tab') 类别
+                    li
+                      a(href='#address', data-toggle='tab') 详细
+                .tab-content
+                  #about.tab-pane
+                    .row
+                      h4.info-text 让我们开始填写最基本的信息吧 
+                      h5.info-text (确认好你们的信息无误, 提交后就不能再次修改)
+                      .col-sm-4.col-sm-offset-1
+                        .picture-container
+                          .picture
+                            img.picture-src(src='/assets/img/default-avatar.png', title='')
+                          h6 承办方
+                          h6 郑轻科技创业中心
+                      .col-sm-6
+                        .form-group
+                          label
+                            | 队长姓名
+                            small (必须)
+                          input.form-control(name='member[name]', type='text', placeholder='小明...')
+                        .form-group
+                          label
+                            | 联系电话
+                            small (必须)
+                          input.form-control(name='member[tel]', type='text', placeholder='18888888888....')
+                      .col-sm-10.col-sm-offset-1
+                        .form-group
+                          label
+                            | 联系Email 
+                            small (必须)
+                          input.form-control(name='member[email]', type='email', placeholder='andrew@creative-tim.com')
+                  #account.tab-pane
+                    h4.info-text  你们作品的属于什么类别? (作品分类)
+                      small (必须)
+                    .row
+                      .col-sm-10.col-sm-offset-1
+                        .col-sm-4
+                          .choice(data-toggle='wizard-checkbox')
+                            input(type='checkbox', name="cate[]", value='数字媒体设计类')
+                            .icon
+                              i.fa.fa-pencil
+                            h6 数字媒体设计类
+                        .col-sm-4
+                          .choice(data-toggle='wizard-checkbox')
+                            input(type='checkbox', name="cate[]", value='开发类')
+                            |                                                 
+                            .icon
+                              i.fa.fa-terminal
+                            h6 开发类
+                        .col-sm-4
+                          .choice(data-toggle='wizard-checkbox')
+                            input(type='checkbox', name="cate[]", value='视频类')
+                            .icon
+                              i.fa.fa-laptop
+                            h6 视频类
+                        label.error(for='categary') 请选择一个类别
+                        input(type="hidden", name='categary', id="Jszzdm", value="")
+                  #address.tab-pane
+                    .row
+                      .col-sm-12
+                        h4.info-text  你能否提供更加详细的信息方便我们统计? 
+                      .col-sm-4.col-sm-offset-1
+                        .picture-container
+                          .picture
+                            img#wizardPicturePreview.picture-src(src='assets/img/xlsx.jpg', title='')
+                            input#wizard-picture(type='file', name="uploadXls")
+                          h6#wizardinfo 上传您的xls报名表
+                            small (必须)
+                      .col-sm-6.col
+                        .form-group
+                          label 作品名字
+                            small (必须)
+                          input.form-control(type='text', name='member[projname]', placeholder='我们的梦想.....')
+                        .form-group
+                          label 小类类别
+                            small (必须)
+                          input.form-control(type='text', name='member[type]', placeholder='产品设计')
+                        .form-group
+                          label 主题(必须)
+                          input.form-control(type='text', name='member[theme]', placeholder='人与社会和谐相处...')
+                .wizard-footer.height-wizard
+                  .pull-right
+                    input.btn.btn-next.btn-fill.btn-warning.btn-wd.btn-sm(type='button', name='next', value='下一步')
+                    input.btn.btn-finish.btn-fill.btn-warning.btn-wd.btn-sm(type='submit', name='finish', value='提交')
+                  .pull-left
+                    input.btn.btn-previous.btn-fill.btn-default.btn-wd.btn-sm(type='button', name='previous', value='上一步')
+                  .clearfix
+          // wizard container
+      // end row
+    // big container
+    .footer
+      .container
+        | made with 
+        i.fa.fa-heart.heart
+        |  by 
+        a(href='#') Creative Tim

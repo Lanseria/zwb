@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+  .image-container.set-full-height(style="background-image: url('/assets/img/wizard.jpg')")
+    // Creative Tim Branding
+    a(href='#')
+      .logo-container
+        .logo
+          img(src='/assets/img/new_logo.png')
+        .brand
+          | 欢迎您 同学
+    // Made With Get Shit Done Kit
+    a.made-with-mk(href='https://www.limonplayer.cn')
+      .brand LS
+      .made-with
+        | Made with 
+        strong Lanseria
+    // Big container
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          // Wizard container
+          .wizard-container
+            #wizardProfile.card.wizard-card(data-color='orange')
+              .wizard-header
+                h3
+                  b 恭喜你
+                  | 报名成功
+                  br
+                  small 5月13日将进行比赛,比赛的时间地点我们会以短信的方式通知您!
+              .row
+                h4.info-text 可以通过扫描二维码 
+                h5.info-text (了解最新信息哦!)
+                .col-sm-4.col-sm-offset-1
+                  .picture-container
+                    .picture
+                      img.picture-src(src='/assets/img/default-avatar.png', title='')
+                    h6 承办方
+                    h6 郑轻科技创业中心
+                .col-sm-6
+                  .form-group
+                    img(src='/assets/img/wx.jpg', style="width:100%;")
+                #account.tab-pane
+          // wizard container
+      // end row
+    // big container
+    .footer
+      .container
+        | made with 
+        i.fa.fa-heart.heart
+        |  by 
+        a(href='#') Creative Tim
